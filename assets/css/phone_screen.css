@@ -1,0 +1,32 @@
+@media screen and (max-width: 600px) {
+    .main{
+        height: auto;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        margin: 1rem;
+    }
+
+    #form{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0rem;
+        width: 100%;
+    }
+
+    .form_control{
+        padding: 5%;
+        margin: 1rem;
+    }
+
+    .return{
+        width: 100%;
+    }
+
+
+}

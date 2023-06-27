@@ -1,11 +1,11 @@
 <script>
-    import svelteLogo from "./assets/svelte.svg";
     import viteLogo from "/vite.svg";
     import Counter from "./lib/Counter.svelte";
+    import Carousel from "./components/Carousel.svelte";
 </script>
 
 <header>
-    <h1>PalaVer</h1>
+    <h1>WordGlimpse</h1>
 </header>
 
 <main>
@@ -15,30 +15,9 @@
     </form>
 
     <article>
-        <section id="carousel">
-            <figure>
-                <img src="" alt="">
-                <figcaption>
-                    <a href="/" target="">Autor: <span>...</span></a>
-                </figcaption>
-            </figure>
-            <figure>
-                <img src="" alt="">
-                <figcaption>
-                    <a href="/" target="">Autor: <span>...</span></a>
-                </figcaption>
-            </figure>
-            <figure>
-                <img src="" alt="">
-                <figcaption>
-                    <a href="/" target="">Autor: <span>...</span></a>
-                </figcaption>
-            </figure>
-        </section>
+        <Carousel />
 
-        <section id="dictionary">
-
-        </section>
+        <section id="dictionary" />
     </article>
 </main>
 

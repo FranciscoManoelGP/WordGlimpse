@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <svg
     version="1.1"
     id="L9"

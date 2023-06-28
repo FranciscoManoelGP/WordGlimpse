@@ -1,30 +1,12 @@
 <script>
     import viteLogo from "/vite.svg";
     import Carousel from "./components/Carousel.svelte";
-    import { onMount } from "svelte";
-    import { fetchImagesFromPexels } from "./lib/fetchImagesFromPexels.js";
 
-    let images = [];
-
-    async function handleSearch(event) {
+    export let searchTerm = "fire"
+    function handleSearch(event) {
         event.preventDefault();
-        const searchTerm = event.target.search.value;
-
-        try {
-            images = await fetchImagesFromPexels(searchTerm);
-        } catch (error) {
-            console.error(error);
-        }
+        searchTerm = event.target.search.value;
     }
-
-    export const defaultSearchTerm = "fire";
-    onMount(async () => {
-        try {
-            images = await fetchImagesFromPexels(defaultSearchTerm);
-        } catch (error) {
-            console.error(error);
-        }
-    });
 </script>
 
 <header>
@@ -33,12 +15,14 @@
 
 <main>
     <form on:submit={handleSearch}>
-        <input type="text" id="search" placeholder={defaultSearchTerm} />
+        <input type="text" id="search" placeholder={searchTerm}/>
         <button type="submit">Traduzir</button>
     </form>
 
     <article>
-        <Carousel {images} />
+        {#key searchTerm}
+            <Carousel {searchTerm}/>
+        {/key}
 
         <section id="dictionary" />
     </article>

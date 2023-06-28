@@ -1,5 +1,13 @@
 <script>
+    import { onMount } from "svelte";
+    import { fetchImagesFromPexels } from "../lib/fetchImagesFromPexels";
+
+    export let searchTerm;
     export let images = [];
+
+    onMount(async () =>{
+        images = await fetchImagesFromPexels(searchTerm);
+    })
 </script>
 
 <section id="carousel">

@@ -3,11 +3,11 @@
 </script>
 
 <section id="carousel">
-    {#each images as { photo, photographerLink, photographer }}
+    {#each images as { src, photographerUrl, photographer }}
         <figure>
-            <img src="{photo}" alt="" />
+            <img src="{src}" alt="" />
             <figcaption>
-                <a href="{photographerLink}" target="">Autor: <span>{photographer}</span></a>
+                <a href="{photographerUrl}" target="">Autor: <span>{photographer}</span></a>
             </figcaption>
         </figure>
     {/each}

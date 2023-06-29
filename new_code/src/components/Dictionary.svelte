@@ -26,4 +26,7 @@
 </section>
 
 <style>
+    #dictionary{
+        overflow-wrap: break-word;
+    }
 </style>

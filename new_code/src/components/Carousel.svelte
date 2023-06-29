@@ -4,7 +4,7 @@
     import Loading from "./Loading.svelte";
 
     export let searchTerm;
-    export let images = [];
+    let images = [];
     let isLoading = false;
 
     onMount(async () => {
@@ -14,7 +14,7 @@
     });
 </script>
 
-<section id="carousel">
+<section id="carousel" >
     {#if isLoading}
         <Loading />
     {/if}
@@ -32,4 +32,10 @@
 </section>
 
 <style>
+    #carousel {
+        display: flex;
+        width: 80%;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+    }
 </style>

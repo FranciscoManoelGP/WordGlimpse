@@ -29,4 +29,15 @@
 </main>
 
 <style>
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    article{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
 </style>

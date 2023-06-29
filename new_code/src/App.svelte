@@ -23,7 +23,7 @@
     <article>
         {#key searchTerm}
             <Carousel {searchTerm}/>
-            <Dictionary />
+            <Dictionary {searchTerm}/>
         {/key}
     </article>
 </main>

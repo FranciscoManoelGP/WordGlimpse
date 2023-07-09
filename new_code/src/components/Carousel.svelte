@@ -1,5 +1,5 @@
 <script>
-    import { fetchImagesFromPexels } from "../lib/fetchImagesFromPexels";
+    import { fetchImagesFromPexels } from "../lib/api/fetchImagesFromPexels";
     import Loading from "./Loading.svelte";
     import { icons } from "../lib/icons";
     

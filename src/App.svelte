@@ -1,5 +1,4 @@
 <script>
-    import viteLogo from "/vite.svg";
     import Carousel from "./components/Carousel.svelte";
     import Dictionary from "./components/Dictionary.svelte";
 

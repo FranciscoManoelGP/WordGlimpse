@@ -1,7 +1,7 @@
 export async function fetchDefinitionsFromDatamuseAPI(searchTerm) {
-    const url = `https://api.datamuse.com/words?sp=${searchTerm}&md=d`;
-
     try {
+        const url = `https://api.datamuse.com/words?sp=${searchTerm}&md=d`;
+
         const response = await fetch(url);
         const data = await response.json();
 
@@ -9,7 +9,7 @@ export async function fetchDefinitionsFromDatamuseAPI(searchTerm) {
             const definitions = data[0]?.defs || [];
             return definitions.map((definition, index) => {
                 const [partOfSpeech, description] = definition.split('\t');
-                const formattedPartOfSpeech = getFormattedPartOfSpeech(partOfSpeech);
+                const formattedPartOfSpeech = formatPartOfSpeech(partOfSpeech);
                 const formattedDescription = formatDescription(description);
 
                 return {
@@ -27,12 +27,12 @@ export async function fetchDefinitionsFromDatamuseAPI(searchTerm) {
     }
 }
 
-function getFormattedPartOfSpeech(partOfSpeech) {
+function formatPartOfSpeech(partOfSpeech) {
     const partOfSpeechMap = {
         n: 'Noun',
         v: 'Verb',
-        adj: 'Adjective',
-        adv: 'Adverb',
+        adj: 'Adjective', 
+        adv: 'Adverb', 
         u: 'Unknown',
     };
 

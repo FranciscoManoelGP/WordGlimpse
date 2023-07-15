@@ -1,5 +1,5 @@
 <script>
-    import { fetchDefinitionsFromDatamuseAPI } from "../lib/api/fetchDefinitionsFromDatamuseAPI";
+    import { fetchDefinitionsFromDatamuseAPI } from "$lib/api/fetchDefinitionsFromDatamuseAPI";
     import Loading from "./Loading.svelte";
 
     export let searchTerm;

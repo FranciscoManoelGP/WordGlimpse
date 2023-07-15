@@ -1,7 +1,7 @@
 <script>
-    import { fetchImagesFromPexels } from "../lib/api/fetchImagesFromPexels";
-    import Loading from "./Loading.svelte";
-    import { icons } from "../lib/icons";
+    import { fetchImagesFromPexels } from "$lib/api/fetchImagesFromPexels";
+    import Loading from "../Loading.svelte";
+    import { icons } from "$lib/icons";
 
     export let searchTerm;
     const fetchImages = fetchImagesFromPexels(searchTerm);

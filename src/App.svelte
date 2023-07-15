@@ -1,5 +1,5 @@
 <script>
-    import Carousel from "./components/Carousel.svelte";
+    import Carousel from "./components/Carousel/index.svelte";
     import Dictionary from "./components/Dictionary.svelte";
 
     export let searchTerm = "fire"

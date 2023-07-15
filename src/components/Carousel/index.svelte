@@ -2,42 +2,25 @@
     import { fetchImagesFromPexels } from "$lib/api/fetchImagesFromPexels";
     import Loading from "../Loading.svelte";
     import { icons } from "$lib/icons";
+    import { scrollCarousel } from "./index";
 
     export let searchTerm;
     const fetchImages = fetchImagesFromPexels(searchTerm);
 
-    let carouselImagesElement;
     let scrollAmount = 0;
-    const scrollIncrement = 290;
-
-    function scrollCarousel(direction) {
-        const containerWidth = carouselImagesElement.offsetWidth;
-
-        if (direction === "left") {
-            scrollAmount -= scrollIncrement;
-        } else if (direction === "right") {
-            scrollAmount += scrollIncrement;
-        }
-
-        if (scrollAmount < 0) {
-            scrollAmount = 0;
-        } else if (
-            scrollAmount >
-            carouselImagesElement.scrollWidth - containerWidth
-        ) {
-            scrollAmount = carouselImagesElement.scrollWidth - containerWidth;
-        }
-
-        carouselImagesElement.scrollTo({
-            top: 0,
-            left: scrollAmount,
-            behavior: "smooth",
-        });
-    }
+    let carouselImagesElement;
 </script>
 
 <section id="carousel">
-    <button on:click={() => scrollCarousel("left")}>
+    <button
+        on:click={() =>
+            (scrollAmount = scrollCarousel(
+                "left",
+                carouselImagesElement,
+                scrollAmount
+            ))}
+        disabled={scrollAmount === 0}
+    >
         {@html icons.chevronLeft}
     </button>
     <div id="carousel-images" bind:this={carouselImagesElement}>
@@ -57,7 +40,15 @@
             {/each}
         {/await}
     </div>
-    <button on:click={() => scrollCarousel("right")}>
+    <button
+        on:click={() =>
+            (scrollAmount = scrollCarousel(
+                "right",
+                carouselImagesElement,
+                scrollAmount
+            ))}
+        disabled={scrollAmount === 1160}
+    >
         {@html icons.chevronRight}
     </button>
 </section>

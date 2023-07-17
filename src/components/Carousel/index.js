@@ -9,9 +9,9 @@ export function scrollCarousel(direction, carouselImagesElement, scrollAmount) {
     }
 
     if (scrollAmount < 0) {
-        scrollAmount = 0;
-    } else if (scrollAmount > carouselImagesElement.scrollWidth - containerWidth) {
         scrollAmount = carouselImagesElement.scrollWidth - containerWidth;
+    } else if (scrollAmount > carouselImagesElement.scrollWidth - containerWidth) {
+        scrollAmount = 0;
     }
 
     carouselImagesElement.scrollTo({

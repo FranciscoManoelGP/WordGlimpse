@@ -19,7 +19,6 @@
                 carouselImagesElement,
                 scrollAmount
             ))}
-        disabled={scrollAmount === 0}
     >
         {@html icons.chevronLeft}
     </button>
@@ -47,7 +46,6 @@
                 carouselImagesElement,
                 scrollAmount
             ))}
-        disabled={scrollAmount === 1160}
     >
         {@html icons.chevronRight}
     </button>

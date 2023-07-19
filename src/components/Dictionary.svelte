@@ -1,18 +1,21 @@
 <script>
-    import { fetchDefinitionsFromDatamuseAPI } from "$lib/api/fetchDefinitionsFromDatamuseAPI";
+    import { fetchExamplesFromDatamuseAPI } from "$lib/api/fetchExamplesFromDatamuseAPI";
     import Loading from "./Loading.svelte";
 
     export let searchTerm;
-    const fetchDefinitions = fetchDefinitionsFromDatamuseAPI(searchTerm);
+    const fetchExemples = fetchExamplesFromDatamuseAPI(searchTerm);
 </script>
 
 <section id="dictionary">
-    {#await fetchDefinitions}
+    {#await fetchExemples}
         <Loading />
-    {:then definitions}
-        {#each definitions as { index, partOfSpeech, description }}
+    {:then examples}
+        {#each examples as {index, word, tags}}
             <h3>{index}</h3>
-            <p>{partOfSpeech}: {description}</p>
+            <p>{word}</p>
+            {#each tags as tag}
+                <p>{tag}</p>
+            {/each}
         {/each}
     {/await}
 </section>

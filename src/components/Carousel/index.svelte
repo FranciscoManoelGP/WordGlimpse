@@ -1,7 +1,7 @@
 <script>
     import { fetchImagesFromPexels } from "$lib/api/fetchImagesFromPexels";
     import Loading from "../Loading.svelte";
-    import { icons } from "$lib/icons";
+    import { BoxArrowRight, ChevronLeft, ChevronRight } from "$lib/icons";
     import { scrollCarousel } from "./index";
 
     export let searchTerm;
@@ -20,7 +20,7 @@
                 scrollAmount
             ))}
     >
-        {@html icons.chevronLeft}
+        <ChevronLeft />
     </button>
     <div id="carousel-images" bind:this={carouselImagesElement}>
         {#await fetchImages}
@@ -32,7 +32,7 @@
                     <figcaption>
                         <a href={photographerUrl} target="_blank">
                             Autor: {photographer}
-                            {@html icons.boxArrowUpRight}
+                            <BoxArrowRight />
                         </a>
                     </figcaption>
                 </figure>
@@ -47,7 +47,7 @@
                 scrollAmount
             ))}
     >
-        {@html icons.chevronRight}
+        <ChevronRight />
     </button>
 </section>
 

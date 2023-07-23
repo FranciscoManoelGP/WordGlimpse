@@ -1,6 +1,7 @@
 <script>
     import Carousel from "./components/Carousel/index.svelte";
     import Dictionary from "./components/Dictionary.svelte";
+    import Historic from "./components/Historic.svelte";
 
     export let searchTerm = "fire"
     function handleSearch(event) {
@@ -23,6 +24,7 @@
         {#key searchTerm}
             <Carousel {searchTerm}/>
             <Dictionary {searchTerm}/>
+            <Historic {searchTerm}/>
         {/key}
     </article>
 </main>

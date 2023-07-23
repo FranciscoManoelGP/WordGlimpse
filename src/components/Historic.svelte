@@ -1,25 +1,25 @@
 <script>
   import { fetchExamplesFromDatamuseAPI } from "$lib/api/fetchExamplesFromDatamuseAPI";
-  import Index from "./Carousel/index.svelte";
   export let searchTerm;
 
-  //TODO: condidion to track the 10 lasts
   function searchTermHistory(searchTerm) {
     let history = Array();
     if (localStorage.hasOwnProperty(`searched`)) {
       history = JSON.parse(localStorage.getItem(`searched`));
       history.push({ term: searchTerm });
+      keepTrackTen(history)
       localStorage.setItem(`searched`, JSON.stringify(history));
     } else {
       history.push({ term: searchTerm });
+      keepTrackTen(history)
       localStorage.setItem(`searched`, JSON.stringify(history));
     }
   }
   searchTermHistory(searchTerm);
 
-  //TODO: condidion to track the 10 lasts
   function responseTermHistory(searchTerm) {
     let responseToHistory = Array();
+    console.log(responseToHistory.length);
     let fetchExemples = fetchExamplesFromDatamuseAPI(searchTerm)
       .then((response) =>
         response
@@ -36,12 +36,20 @@
         if (localStorage.hasOwnProperty(`apiResult`)) {
           responseToHistory = JSON.parse(localStorage.getItem(`apiResult`));
           responseToHistory.push({ info: historifyResponse });
+          keepTrackTen(responseToHistory)
           localStorage.setItem(`apiResult`, JSON.stringify(responseToHistory));
         } else {
           responseToHistory.push({ info: historifyResponse });
+          keepTrackTen(responseToHistory)
           localStorage.setItem(`apiResult`, JSON.stringify(responseToHistory));
         }
       });
   }
   responseTermHistory(searchTerm);
+
+  function keepTrackTen(array) {
+    if (array.length > 10) {
+      array.shift();
+    }
+  }
 </script>
